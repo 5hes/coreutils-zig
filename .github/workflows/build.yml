@@ -1,0 +1,63 @@
+name: Build for aarch64
+
+on:
+  push:
+
+permissions: write-all
+
+jobs:
+  help:
+    runs-on: ubuntu-latest
+    permissions: write-all
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Create a new tag
+      if: 1 == 1
+      run: |
+        TAG_NAME="nightly"
+        git tag $TAG_NAME
+        git push origin $TAG_NAME
+
+    - name: HELP
+      run: |
+        mkdir .zig && cd .zig
+        curl -o zig.tar.xz "https://ziglang.org/builds/zig-linux-x86_64-0.14.0-dev.3199+4162f401c.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm 123 && export PATH=$PWD:$PATH && cd ..
+        zig build --help
+
+  Fast:
+    runs-on: ubuntu-latest
+    permissions: write-all
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build
+      run: |
+        mkdir .zig && cd .zig
+        curl -o zig.tar.xz "https://ziglang.org/builds/zig-linux-x86_64-0.14.0-dev.3199+4162f401c.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm 123 && export PATH=$PWD:$PATH && cd ..
+        zig build -Dtarget="aarch64-linux-musl" -Doptimize="ReleaseFast" -Dcpu="kryo"
+
+    - name: Check
+      run: |
+        ls -lah zig-out/
+        ls -lah zig-out/bin/
+
+  Small:
+    runs-on: ubuntu-latest
+    permissions: write-all
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build
+      run: |
+        mkdir .zig && cd .zig
+        curl -o zig.tar.xz "https://ziglang.org/builds/zig-linux-x86_64-0.14.0-dev.3199+4162f401c.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm 123 && export PATH=$PWD:$PATH && cd ..
+        zig build -Dtarget="aarch64-linux-musl" -Doptimize="ReleaseSmall" -Dcpu="kryo"
+
+    - name: Check
+      run: |
+        ls -lah zig-out/
+        ls -lah zig-out/bin/
