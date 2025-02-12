@@ -37,7 +37,7 @@ jobs:
       run: |
         mkdir .zig && cd .zig
         curl -o zig.tar.xz "https://ziglang.org/builds/zig-linux-x86_64-0.14.0-dev.3199+4162f401c.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
-        zig build -Dtarget="aarch64-linux-musl" -Doptimize="ReleaseFast" -Dcpu="kryo"
+        zig build -Dtarget="aarch64-linux-musl"   --release=fast -Dcpu="kryo"
 
     - name: Check
       run: |
@@ -55,7 +55,7 @@ jobs:
       run: |
         mkdir .zig && cd .zig
         curl -o zig.tar.xz "https://ziglang.org/builds/zig-linux-x86_64-0.14.0-dev.3199+4162f401c.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
-        zig build -Dtarget="aarch64-linux-musl" -Doptimize="ReleaseSmall" -Dcpu="kryo"
+        zig build -Dtarget="aarch64-linux-musl" --release=fast -Dcpu="kryo"
 
     - name: Check
       run: |
