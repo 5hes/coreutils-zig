@@ -23,7 +23,7 @@ jobs:
     - name: HELP
       run: |
         mkdir .zig && cd .zig
-        curl -o zig.tar.xz "https://ziglang.org/download/0.12.1/zig-linux-x86_64-0.13.0.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
+        curl -o zig.tar.xz "https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
         zig build --help
 
   Fast:
@@ -36,7 +36,7 @@ jobs:
     - name: Build
       run: |
         mkdir .zig && cd .zig
-        curl -o zig.tar.xz "https://ziglang.org/download/0.12.1/zig-linux-x86_64-0.13.0.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
+        curl -o zig.tar.xz "https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
         zig build -Dtarget="aarch64-linux-musl"   --release=fast -Dcpu="kryo"
 
     - name: Check
@@ -54,7 +54,7 @@ jobs:
     - name: Build
       run: |
         mkdir .zig && cd .zig
-        curl -o zig.tar.xz "https://ziglang.org/download/0.12.1/zig-linux-x86_64-0.13.0.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
+        curl -o zig.tar.xz "https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
         zig build -Dtarget="aarch64-linux-musl" --release=small -Dcpu="kryo"
 
     - name: Check
@@ -75,7 +75,7 @@ jobs:
     - name: Build
       run: |
         mkdir .zig && cd .zig
-        curl -o zig.tar.xz "https://ziglang.org/download/0.12.1/zig-linux-x86_64-0.13.0.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
+        curl -o zig.tar.xz "https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz" && tar -xJf zig.tar.xz && rm zig.tar.xz && mv * 123 && mv 123/* . && rm -d 123 && export PATH=$PWD:$PATH && cd ..
         zig build
 
     - name: Check
